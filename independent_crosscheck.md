@@ -7,7 +7,10 @@ Source repository: `github.com/rafalwronapl/erdos86-hypercube-c4`
 Checked by: independent reviewer, Minamoto side, not the certificate author.
 
 Context: R. Wrona requested certificate-level verification before public posting
-on Erdos Problems #86.
+on Erdos Problems #86. This report refers to an earlier certificate set in
+which the Q11 certificate had 7156 edges. The current repository keeps that
+earlier Q11 file in `archive/` and uses a newer Q11 certificate with 7164 edges
+in the main certificate table.
 
 ## Method
 
@@ -70,7 +73,7 @@ Run:
 ```bash
 python c4_sparse_verifier.py q9_edges_repair_from1503_iter2.json --n 9 --expected-edges 1505
 python c4_sparse_verifier.py q10_edges_repair_from3302_iter5.json --n 10 --expected-edges 3304
-python c4_sparse_verifier.py q11_edges_repair_from7151_iter3.json --n 11 --expected-edges 7156
+python c4_sparse_verifier.py archive/q11_edges_repair_from7151_iter3_independent_crosscheck.json --n 11 --expected-edges 7156
 python c4_sparse_verifier.py q12_edges_repair_from15366_iter3.json --n 12 --expected-edges 15372
 python c4_sparse_verifier.py q13_edges_repair_from32842_iter2.json --n 13 --expected-edges 32856
 python c4_sparse_verifier.py q14_edges_repair_from69895_iter2.json --n 14 --expected-edges 69909

@@ -99,6 +99,8 @@ See `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 - `c4_sparse_verifier.py` - independent sparse cherry-counting verifier.
 - `independent_crosscheck.md` - independent certificate-level cross-check.
 - `q*_edges_*.json` - edge-list certificates.
+- `archive/` - old Q11=7156 certificate retained for the independent
+  cross-check record.
 - `PAPER_V2.md` - draft note explaining the construction and verification.
 - `lift_params.json` - product-lift parameters used in the search stage.
 - `SHA256SUMS` - raw file hashes for the certificates.
