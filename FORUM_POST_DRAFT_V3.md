@@ -61,10 +61,10 @@ outside the product-lift family and was essential for the final values above.
 These are lower bounds only. I make no exactness claims for `n >= 7`.
 
 The densities decrease over this range and are consistent with the conjecture
-`ex(Q_n,C_4) = (1/2+o(1)) n 2^(n-1)`. The `n=15` density `0.6028` is below the
-Balogh-Hu-Lidicky-Liu asymptotic upper-bound constant `0.6068`, while `n=14` is
-still slightly above it; this comparison is only contextual because that upper
-bound is asymptotic.
+`ex(Q_n,C_4) = (1/2+o(1)) n 2^(n-1)`. The `n=15` density `0.6028` is below
+Baber's asymptotic upper-bound constant `0.60318`, while `n=14` is still
+slightly above it; this comparison is only contextual because that upper bound
+is asymptotic.
 
 SHA-256 hashes of the seven final certificate files:
 
@@ -78,7 +78,7 @@ Q14  q14_edges_repair_from69895_iter2.json  78d7ca75e720f920637d72134c7749f9680f
 Q15  q15_edges_repair_from148111_iter1.json 9c98dc35a87d2a2fde9ee115f628144d2851e1dbdf57096ad6e6003d97b8f575
 ```
 
-Certificates, scripts, lift parameters, and a standalone verifier are available at:
+Certificates, lift parameters, hashes, and a standalone verifier are available at:
 
 `[REPO_URL]`
 
@@ -139,7 +139,7 @@ rafalwronapl@gmail.com
 | "Why not Q16?" | The next case is natural, but the local ILP neighborhoods and search time grow quickly. |
 | "Why not use SAT/PB to close Q7?" | Feasible in principle, but outside the scope of this note; left as an open problem. |
 | "Why was an intermediate certificate sometimes used as the next lift parent?" | Empirically, the largest repaired certificate was not always the best parent for the next automorphism search; this is documented in the note and is not a theorem. |
-| "Do you compare against projective-plane-based or algebraic bounds?" | This post reports explicit computational certificates. I am not aware of a published explicit table for `n >= 9`; pointers to algebraic or computational bounds are welcome. |
+| "Do you compare against projective-plane-based or algebraic bounds?" | This post reports explicit computational certificates. I am not aware of a published explicit certificate table for `n >= 9`; pointers to algebraic or computational bounds are welcome. |
 
 ---
 

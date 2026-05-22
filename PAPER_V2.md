@@ -50,7 +50,7 @@ This is problem #86 in the Erdos Problems database. The standard asymptotic conj
 ex(Q_n,C4) = (1/2 + o(1)) n 2^(n-1).
 ```
 
-The best known asymptotic upper bound is due to Balogh, Hu, Lidicky and Liu, who prove that a C4-free subgraph of `Q_n` has at most `0.6068 |E(Q_n)|` edges for sufficiently large `n` in their flag-algebra framework.
+Balogh, Hu, Lidicky and Liu proved that a C4-free subgraph of `Q_n` has at most `0.6068 |E(Q_n)|` edges for sufficiently large `n` in their flag-algebra framework. Baber improved the asymptotic upper-bound constant to `0.60318`.
 
 For small dimensions, Brouwer and Etzion determined the exact values up to `n=6`. Minamoto recently gave explicit constructions with 304 edges in `Q7` and 680 edges in `Q8`, together with edge lists and verification code. We are not aware of previously published explicit values for `ex(Q_n,C4)` for `n >= 9`.
 
@@ -307,34 +307,15 @@ The densities of the seven certificates are:
 
 This decreasing sequence is consistent with the conjecture `ex(Q_n,C4) = (1/2+o(1)) |E(Q_n)|`. Finite-dimensional values above `1/2` do not contradict the asymptotic conjecture.
 
-The `n=15` density `0.6028` is below the asymptotic upper-bound constant `0.6068` of Balogh, Hu, Lidicky and Liu; the `n=14` density `0.6096` is still slightly above it. This comparison is only contextual, since the `0.6068` bound is asymptotic.
+The `n=15` density `0.6028` is below Baber's asymptotic upper-bound constant `0.60318`; the `n=14` density `0.6096` is still slightly above it. This comparison is only contextual, since the `0.60318` bound is asymptotic.
 
 ## 7. Reproducibility
 
-The main scripts are:
+The lower-bound claim in this note is reproducible from the public certificates alone: run the standalone verifier on the seven JSON files and check that every listed edge is a valid hypercube edge and that no enumerated 4-cycle is fully selected.
 
-```text
-qn_lift_random.py          random product lift Q_n -> Q_{n+1}
-qn_direct_repair_probe.py  local C4-incidence-neighborhood ILP repair
-q9_local_search.py         Aut(Q8) search used for the Q9 lift
-q10_relift.py              Q10 relift experiments
-```
+The search pipeline that found the certificates used random product lifts and local ILP repair, as described above. Those search scripts are not needed to verify the theorem and are not part of the minimal certificate repository. The lift parameters are included only as computational provenance, not as an independent proof.
 
-Example commands:
-
-```bash
-python qn_lift_random.py \
-  --input q13_edges_repair_from32842_iter2.json \
-  --output q14_edges_lift_from_q13_32856.json \
-  --trials 100 --seed 14856
-
-python qn_direct_repair_probe.py \
-  --input q14_edges_lift_from_q13_32856.json \
-  --output q14_edges_repair_from69883_iter1.json \
-  --r1 250 --r2 60 --r3 15 --t1 1.5 --t2 3 --t3 6
-```
-
-The total compute time for the table was on the order of several CPU-hours on a single workstation, with no GPU.
+The total search time for the table was on the order of several CPU-hours on a single workstation, with no GPU.
 
 ## 8. Open Problems
 
@@ -348,6 +329,8 @@ The total compute time for the table was on the order of several CPU-hours on a 
 [BE11] A. E. Brouwer and T. Etzion, "Equitable colorings and the maximum number of edges in C4-free subgraphs of the n-cube", Discrete Mathematics 311 (2011).
 
 [BHLL14] J. Balogh, P. Hu, B. Lidicky, H. Liu, "Upper bounds on the size of 4- and 6-cycle-free subgraphs of the hypercube", European Journal of Combinatorics 35 (2014), 75--85. arXiv:1201.0209.
+
+[Ba12] R. Baber, "Turan densities of hypercubes", arXiv:1201.3587, 2012.
 
 [E84] P. Erdos, "On some problems in graph theory, combinatorial analysis and combinatorial number theory", in Graph Theory and Combinatorics, Cambridge 1983, Academic Press, 1984, 1--17.
 
