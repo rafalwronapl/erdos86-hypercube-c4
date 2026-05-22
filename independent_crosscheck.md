@@ -7,10 +7,10 @@ Source repository: `github.com/rafalwronapl/erdos86-hypercube-c4`
 Checked by: independent reviewer, Minamoto side, not the certificate author.
 
 Context: R. Wrona requested certificate-level verification before public posting
-on Erdos Problems #86. This report refers to an earlier certificate set in
-which the Q11 certificate had 7156 edges. The current repository keeps that
-earlier Q11 file in `archive/` and uses a newer Q11 certificate with 7164 edges
-in the main certificate table.
+on Erdos Problems #86. The Q11 certificate was first checked at 7156 edges and
+then re-checked after a local repair improvement to 7164 edges. The current
+repository uses the 7164-edge Q11 certificate in the main certificate table and
+keeps the earlier 7156-edge Q11 file in `archive/`.
 
 ## Method
 
@@ -38,7 +38,7 @@ All seven certificates passed.
 |---:|---:|---|---:|---|---|---:|---|
 | 9 | 1505 | match | 1505 | 0/0/0/0 | yes | 512/512 | 4-7 |
 | 10 | 3304 | match | 3304 | 0/0/0/0 | yes | 1024/1024 | 5-9 |
-| 11 | 7156 | match | 7156 | 0/0/0/0 | yes | 2048/2048 | 5-10 |
+| 11 | 7164 | match | 7164 | 0/0/0/0 | yes | 2048/2048 | 5-10 |
 | 12 | 15372 | match | 15372 | 0/0/0/0 | yes | 4096/4096 | 5-11 |
 | 13 | 32856 | match | 32856 | 0/0/0/0 | yes | 8192/8192 | 5-12 |
 | 14 | 69909 | match | 69909 | 0/0/0/0 | yes | 16384/16384 | 5-13 |
@@ -73,7 +73,7 @@ Run:
 ```bash
 python c4_sparse_verifier.py q9_edges_repair_from1503_iter2.json --n 9 --expected-edges 1505
 python c4_sparse_verifier.py q10_edges_repair_from3302_iter5.json --n 10 --expected-edges 3304
-python c4_sparse_verifier.py archive/q11_edges_repair_from7151_iter3_independent_crosscheck.json --n 11 --expected-edges 7156
+python c4_sparse_verifier.py q11_edges_repair_from7160_probe_fast2.json --n 11 --expected-edges 7164
 python c4_sparse_verifier.py q12_edges_repair_from15366_iter3.json --n 12 --expected-edges 15372
 python c4_sparse_verifier.py q13_edges_repair_from32842_iter2.json --n 13 --expected-edges 32856
 python c4_sparse_verifier.py q14_edges_repair_from69895_iter2.json --n 14 --expected-edges 69909

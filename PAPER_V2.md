@@ -291,9 +291,9 @@ A fresh local run of this verifier on the seven final certificate files is recor
 
 ### 5.1 Independent Cross-Check
 
-After publication of the certificate repository, Minamo Minamoto independently checked an earlier version of the seven certificates, in which the Q11 certificate had 7156 edges, using a separate sparse cherry-counting verifier. This verifier uses the equivalent condition that a graph is C4-free if and only if no unordered vertex pair has two common neighbours. This is a different algorithm from the exhaustive four-cycle enumeration above.
+After publication of the certificate repository, Minamo Minamoto independently checked the seven certificates, including the improved Q11 certificate with 7164 edges, using a separate sparse cherry-counting verifier. This verifier uses the equivalent condition that a graph is C4-free if and only if no unordered vertex pair has two common neighbours. This is a different algorithm from the exhaustive four-cycle enumeration above.
 
-That independent check found matching SHA-256 hashes, the stated edge counts, no invalid hypercube edges, no loops or duplicates, full vertex support, and no C4 in all seven earlier certificates. The current repository improves the Q11 certificate to 7164 edges; this new Q11 file has been checked locally by both bundled verifiers, but has not yet been included in the independent cross-check report. The cross-check report and verifier are included as `independent_crosscheck.md` and `c4_sparse_verifier.py`.
+That independent check found matching SHA-256 hashes, the stated edge counts, no invalid hypercube edges, no loops or duplicates, full vertex support, and no C4 in all seven certificates. The cross-check report and verifier are included as `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 
 ## 6. Computational Notes
 

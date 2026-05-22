@@ -73,23 +73,19 @@ takes a few seconds.
 
 ## Independent Cross-Check
 
-An earlier version of the certificate set, with `Q11 >= 7156`, was
+The certificate set, including the improved `Q11 >= 7164` certificate, was
 independently checked by Minamo Minamoto using a separate sparse cherry-counting
 verifier. This verifier does not enumerate the 4-cycles of the hypercube
 directly. Instead, it checks the equivalent condition that no unordered pair of
 vertices has two common neighbours.
 
-All seven earlier certificates passed that independent check:
+All seven certificates passed that independent check:
 
 - SHA-256 hashes matched `SHA256SUMS`;
 - edge counts matched the claimed values;
 - all edges were valid hypercube edges;
 - no loops or duplicates were found;
 - no C4 was detected.
-
-The current repository improves the `Q11` certificate to 7164 edges. That new
-`Q11` certificate has been checked locally by both bundled verifiers, but has
-not yet been included in the independent cross-check report.
 
 See `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 

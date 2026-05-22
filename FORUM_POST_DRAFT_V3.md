@@ -88,15 +88,14 @@ Certificates, lift parameters, hashes, and a standalone verifier are available a
 
 `[REPO_URL]`
 
-In addition to my verifier, an earlier version of this certificate set, with
-`Q11 >= 7156`, was independently checked by Minamo Minamoto using a separate
-sparse cherry-counting verifier. This verifier checks the equivalent condition
-that no unordered vertex pair has two common neighbours, rather than enumerating
-the hypercube's 4-cycles directly. The current repository improves the Q11
-certificate to 7164 edges; this new Q11 certificate has been checked locally by
-both bundled verifiers but is not yet part of that independent cross-check.
-Novelty against the full published literature should still be checked
-separately.
+In addition to my verifier, the certificate set, including the improved
+`Q11 >= 7164` certificate, was independently checked by Minamo Minamoto using a
+separate sparse cherry-counting verifier. This verifier checks the equivalent
+condition that no unordered vertex pair has two common neighbours, rather than
+enumerating the hypercube's 4-cycles directly. All seven certificates passed
+with matching SHA-256 hashes, the stated edge counts, valid hypercube edges,
+full vertex support, no duplicates or loops, and no C4s. Novelty against the
+full published literature should still be checked separately.
 
 A short note is in preparation. I would appreciate verification, error reports,
 and pointers to any prior unpublished or computational certificate tables for
