@@ -10,7 +10,7 @@ the following lower bounds:
 |---:|---:|---:|---|---|
 | 9 | 1505 | 0 | `0994be825ec39d115b65eb1436eace7c1be324448a6ec116d69c8a7e2a75d338` | `q9_edges_repair_from1503_iter2.json` |
 | 10 | 3304 | 0 | `24317cb0f821a7e39688d1376ac58c466779fc21d3628085270ddc468ae27c09` | `q10_edges_repair_from3302_iter5.json` |
-| 11 | 7156 | 0 | `efedbcbcc759765cecd4eb50bd7cbd9cb85b10b957ff84cfbfa92b91f4dc1d8d` | `q11_edges_repair_from7151_iter3.json` |
+| 11 | 7164 | 0 | `a396680dd00bd3b86fff26920c5345cebeff4dde3d7dd411fd8ea97ac269274b` | `q11_edges_repair_from7160_probe_fast2.json` |
 | 12 | 15372 | 0 | `f1e952df4c40e10418f52b9c778fd8d1313efb1ab41bc8e45266d645a368a2f5` | `q12_edges_repair_from15366_iter3.json` |
 | 13 | 32856 | 0 | `f3214c05e66d45a3a300d2a96ee3f3a77982d091990ff5457f1852e98a389dd2` | `q13_edges_repair_from32842_iter2.json` |
 | 14 | 69909 | 0 | `78d7ca75e720f920637d72134c7749f9680f7c4c60d31ac67e8948a1fa0d7e32` | `q14_edges_repair_from69895_iter2.json` |
@@ -25,13 +25,13 @@ contradict the asymptotic conjecture.
 The Brass-Harborth-Nienborg general estimate gives a useful comparison point.
 Using the commonly cited general form
 `0.5 * (n + 0.9 * sqrt(n)) * 2^(n-1)`, the present certificates exceed that
-estimate for `Q9` and `Q10`, but not for `Q11` through `Q15`.
+estimate for `Q9`, `Q10`, and `Q11`, but not for `Q12` through `Q15`.
 
 | n | certificate | BHN general estimate | certificate - estimate |
 |---:|---:|---:|---:|
 | 9 | 1505 | 1497.6 | +7.4 |
 | 10 | 3304 | 3288.6 | +15.4 |
-| 11 | 7156 | 7160.3 | -4.3 |
+| 11 | 7164 | 7160.3 | +3.7 |
 | 12 | 15372 | 15480.5 | -108.5 |
 | 13 | 32856 | 33269.8 | -413.8 |
 | 14 | 69909 | 71137.2 | -1228.2 |
@@ -39,7 +39,7 @@ estimate for `Q9` and `Q10`, but not for `Q11` through `Q15`.
 
 So the strongest conservative framing is: explicit certificate-level lower
 bounds for `Q9` through `Q15`, with small numerical improvements over the BHN
-general estimate in `Q9` and `Q10`.
+general estimate in `Q9`, `Q10`, and `Q11`.
 
 ## Verification
 
@@ -58,7 +58,7 @@ Expected verification summary:
 ```text
 q9_edges_repair_from1503_iter2.json: n=9, edges=1505, cycles=4608, violations=0
 q10_edges_repair_from3302_iter5.json: n=10, edges=3304, cycles=11520, violations=0
-q11_edges_repair_from7151_iter3.json: n=11, edges=7156, cycles=28160, violations=0
+q11_edges_repair_from7160_probe_fast2.json: n=11, edges=7164, cycles=28160, violations=0
 q12_edges_repair_from15366_iter3.json: n=12, edges=15372, cycles=67584, violations=0
 q13_edges_repair_from32842_iter2.json: n=13, edges=32856, cycles=159744, violations=0
 q14_edges_repair_from69895_iter2.json: n=14, edges=69909, cycles=372736, violations=0
@@ -73,18 +73,23 @@ takes a few seconds.
 
 ## Independent Cross-Check
 
-The certificates were also independently checked by Minamo Minamoto using a
-separate sparse cherry-counting verifier. This verifier does not enumerate the
-4-cycles of the hypercube directly. Instead, it checks the equivalent condition
-that no unordered pair of vertices has two common neighbours.
+An earlier version of the certificate set, with `Q11 >= 7156`, was
+independently checked by Minamo Minamoto using a separate sparse cherry-counting
+verifier. This verifier does not enumerate the 4-cycles of the hypercube
+directly. Instead, it checks the equivalent condition that no unordered pair of
+vertices has two common neighbours.
 
-All seven certificates passed the independent check:
+All seven earlier certificates passed that independent check:
 
 - SHA-256 hashes matched `SHA256SUMS`;
 - edge counts matched the claimed values;
 - all edges were valid hypercube edges;
 - no loops or duplicates were found;
 - no C4 was detected.
+
+The current repository improves the `Q11` certificate to 7164 edges. That new
+`Q11` certificate has been checked locally by both bundled verifiers, but has
+not yet been included in the independent cross-check report.
 
 See `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 

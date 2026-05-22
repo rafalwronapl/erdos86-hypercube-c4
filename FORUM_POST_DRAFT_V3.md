@@ -41,7 +41,7 @@ C4-free edge-list constructions for the next seven dimensions:
 |---:|---:|---:|---:|
 | 9 | 1505 | 0.6532 | 4608 |
 | 10 | 3304 | 0.6453 | 11520 |
-| 11 | 7156 | 0.6353 | 28160 |
+| 11 | 7164 | 0.6360 | 28160 |
 | 12 | 15372 | 0.6255 | 67584 |
 | 13 | 32856 | 0.6170 | 159744 |
 | 14 | 69909 | 0.6096 | 372736 |
@@ -61,10 +61,10 @@ outside the product-lift family and was essential for the final values above.
 These are lower bounds only. I make no exactness claims for `n >= 7`.
 
 For context, compared with the Brass-Harborth-Nienborg general estimate
-`0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)`, the `Q9` and `Q10` certificates improve the
-numerical lower bound by about `7.4` and `15.4` edges respectively. The
-`Q11-Q15` certificates are valid explicit witnesses but do not improve that
-general estimate.
+`0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)`, the `Q9`, `Q10`, and `Q11` certificates
+improve the numerical lower bound by about `7.4`, `15.4`, and `3.7` edges
+respectively. The `Q12-Q15` certificates are valid explicit witnesses but do
+not improve that general estimate.
 
 The densities decrease over this range and are consistent with the conjecture
 `ex(Q_n,C_4) = (1/2+o(1)) n 2^(n-1)`. The `n=15` density `0.6028` is below
@@ -77,7 +77,7 @@ SHA-256 hashes of the seven final certificate files:
 ```text
 Q9   q9_edges_repair_from1503_iter2.json    0994be825ec39d115b65eb1436eace7c1be324448a6ec116d69c8a7e2a75d338
 Q10  q10_edges_repair_from3302_iter5.json   24317cb0f821a7e39688d1376ac58c466779fc21d3628085270ddc468ae27c09
-Q11  q11_edges_repair_from7151_iter3.json   efedbcbcc759765cecd4eb50bd7cbd9cb85b10b957ff84cfbfa92b91f4dc1d8d
+Q11  q11_edges_repair_from7160_probe_fast2.json a396680dd00bd3b86fff26920c5345cebeff4dde3d7dd411fd8ea97ac269274b
 Q12  q12_edges_repair_from15366_iter3.json  f1e952df4c40e10418f52b9c778fd8d1313efb1ab41bc8e45266d645a368a2f5
 Q13  q13_edges_repair_from32842_iter2.json  f3214c05e66d45a3a300d2a96ee3f3a77982d091990ff5457f1852e98a389dd2
 Q14  q14_edges_repair_from69895_iter2.json  78d7ca75e720f920637d72134c7749f9680f7c4c60d31ac67e8948a1fa0d7e32
@@ -88,13 +88,15 @@ Certificates, lift parameters, hashes, and a standalone verifier are available a
 
 `[REPO_URL]`
 
-In addition to my verifier, the certificates were independently checked by
-Minamo Minamoto using a separate sparse cherry-counting verifier. This verifier
-checks the equivalent condition that no unordered vertex pair has two common
-neighbours, rather than enumerating the hypercube's 4-cycles directly. All seven
-certificates passed with matching SHA-256 hashes and the stated edge counts.
-This is an independent certificate-level check; novelty against the full
-published literature should still be checked separately.
+In addition to my verifier, an earlier version of this certificate set, with
+`Q11 >= 7156`, was independently checked by Minamo Minamoto using a separate
+sparse cherry-counting verifier. This verifier checks the equivalent condition
+that no unordered vertex pair has two common neighbours, rather than enumerating
+the hypercube's 4-cycles directly. The current repository improves the Q11
+certificate to 7164 edges; this new Q11 certificate has been checked locally by
+both bundled verifiers but is not yet part of that independent cross-check.
+Novelty against the full published literature should still be checked
+separately.
 
 A short note is in preparation. I would appreciate verification, error reports,
 and pointers to any prior unpublished or computational certificate tables for
@@ -121,7 +123,7 @@ certified lower bounds
 ```text
 ex(Q9,C4)  >= 1505,
 ex(Q10,C4) >= 3304,
-ex(Q11,C4) >= 7156,
+ex(Q11,C4) >= 7164,
 ex(Q12,C4) >= 15372,
 ex(Q13,C4) >= 32856,
 ex(Q14,C4) >= 69909,
@@ -174,7 +176,7 @@ README.md
 verify_c4_free.py
 q9_edges_repair_from1503_iter2.json
 q10_edges_repair_from3302_iter5.json
-q11_edges_repair_from7151_iter3.json
+q11_edges_repair_from7160_probe_fast2.json
 q12_edges_repair_from15366_iter3.json
 q13_edges_repair_from32842_iter2.json
 q14_edges_repair_from69895_iter2.json

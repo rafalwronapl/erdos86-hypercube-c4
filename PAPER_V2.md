@@ -20,7 +20,7 @@ Let `ex(Q_n,C4)` denote the maximum number of edges in a C4-free subgraph of the
 \begin{aligned}
 \mathrm{ex}(Q_9,C_4)&\ge 1505, &
 \mathrm{ex}(Q_{10},C_4)&\ge 3304, &
-\mathrm{ex}(Q_{11},C_4)&\ge 7156,\\
+\mathrm{ex}(Q_{11},C_4)&\ge 7164,\\
 \mathrm{ex}(Q_{12},C_4)&\ge 15372, &
 \mathrm{ex}(Q_{13},C_4)&\ge 32856, &
 \mathrm{ex}(Q_{14},C_4)&\ge 69909,\\
@@ -54,7 +54,7 @@ Balogh, Hu, Lidicky and Liu proved that a C4-free subgraph of `Q_n` has at most 
 
 For small dimensions, Brouwer and Etzion determined the exact values up to `n=6`. Minamoto recently gave explicit constructions with 304 edges in `Q7` and 680 edges in `Q8`, together with edge lists and verification code. We are not aware of a previously published explicit certificate table for `ex(Q_n,C4)` for `n >= 9`.
 
-The main contribution of this note is a certified lower-bound table for `9 <= n <= 15`. Compared with the commonly cited Brass-Harborth-Nienborg general estimate `0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)`, the certificates improve the numerical lower bound for `Q9` and `Q10`; for `Q11` through `Q15` they should be viewed as explicit certificate-level constructions rather than improvements over that general estimate.
+The main contribution of this note is a certified lower-bound table for `9 <= n <= 15`. Compared with the commonly cited Brass-Harborth-Nienborg general estimate `0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)`, the certificates improve the numerical lower bound for `Q9`, `Q10`, and `Q11`; for `Q12` through `Q15` they should be viewed as explicit certificate-level constructions rather than improvements over that general estimate.
 
 ## 2. Preliminaries
 
@@ -138,7 +138,7 @@ The following lower bounds hold.
 |---:|---:|---:|---:|---|
 | 9 | 1505 | 0.6532 | 4608 | `q9_edges_repair_from1503_iter2.json` |
 | 10 | 3304 | 0.6453 | 11520 | `q10_edges_repair_from3302_iter5.json` |
-| 11 | 7156 | 0.6353 | 28160 | `q11_edges_repair_from7151_iter3.json` |
+| 11 | 7164 | 0.6360 | 28160 | `q11_edges_repair_from7160_probe_fast2.json` |
 | 12 | 15372 | 0.6255 | 67584 | `q12_edges_repair_from15366_iter3.json` |
 | 13 | 32856 | 0.6170 | 159744 | `q13_edges_repair_from32842_iter2.json` |
 | 14 | 69909 | 0.6096 | 372736 | `q14_edges_repair_from69895_iter2.json` |
@@ -161,7 +161,7 @@ Q9 = 1501
 
 Q10 = 3304
   -> lift to Q11 = 7142
-  -> repair to Q11 = 7156
+  -> repair to Q11 = 7164
 
 Q11 = 7151
   -> lift to Q12 = 15350
@@ -210,7 +210,7 @@ The table below separates rigorous upper bounds from conditional ones. The condi
 | 8 | 680 | 704 | 694 |
 | 9 | 1505 | 1584 | 1530 |
 | 10 | 3304 | 3520 | 3400 |
-| 11 | 7156 | 7744 | 7480 |
+| 11 | 7164 | 7744 | 7480 |
 | 12 | 15372 | 16896 | 16320 |
 | 13 | 32856 | 36608 | 35360 |
 | 14 | 69909 | 78848 | 76160 |
@@ -234,13 +234,13 @@ for general `n >= 9`. The comparison is:
 |---:|---:|---:|---:|
 | 9 | 1505 | 1497.6 | +7.4 |
 | 10 | 3304 | 3288.6 | +15.4 |
-| 11 | 7156 | 7160.3 | -4.3 |
+| 11 | 7164 | 7160.3 | +3.7 |
 | 12 | 15372 | 15480.5 | -108.5 |
 | 13 | 32856 | 33269.8 | -413.8 |
 | 14 | 69909 | 71137.2 | -1228.2 |
 | 15 | 148126 | 151434.7 | -3308.7 |
 
-Thus only the `Q9` and `Q10` certificates improve this general numerical estimate. The remaining certificates are still valid explicit lower-bound witnesses, but should not be presented as improving the BHN estimate.
+Thus the `Q9`, `Q10`, and `Q11` certificates improve this general numerical estimate. The remaining certificates are still valid explicit lower-bound witnesses, but should not be presented as improving the BHN estimate.
 
 ## 5. Verification and Certificates
 
@@ -291,9 +291,9 @@ A fresh local run of this verifier on the seven final certificate files is recor
 
 ### 5.1 Independent Cross-Check
 
-After publication of the certificate repository, Minamo Minamoto independently checked the seven certificates using a separate sparse cherry-counting verifier. This verifier uses the equivalent condition that a graph is C4-free if and only if no unordered vertex pair has two common neighbours. This is a different algorithm from the exhaustive four-cycle enumeration above.
+After publication of the certificate repository, Minamo Minamoto independently checked an earlier version of the seven certificates, in which the Q11 certificate had 7156 edges, using a separate sparse cherry-counting verifier. This verifier uses the equivalent condition that a graph is C4-free if and only if no unordered vertex pair has two common neighbours. This is a different algorithm from the exhaustive four-cycle enumeration above.
 
-The independent check found matching SHA-256 hashes, the stated edge counts, no invalid hypercube edges, no loops or duplicates, full vertex support, and no C4 in all seven certificates. The cross-check report and verifier are included as `independent_crosscheck.md` and `c4_sparse_verifier.py`.
+That independent check found matching SHA-256 hashes, the stated edge counts, no invalid hypercube edges, no loops or duplicates, full vertex support, and no C4 in all seven earlier certificates. The current repository improves the Q11 certificate to 7164 edges; this new Q11 file has been checked locally by both bundled verifiers, but has not yet been included in the independent cross-check report. The cross-check report and verifier are included as `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 
 ## 6. Computational Notes
 
@@ -330,7 +330,7 @@ Several natural variants did not improve the main construction.
 The densities of the seven certificates are:
 
 ```text
-0.6532, 0.6453, 0.6353, 0.6255, 0.6170, 0.6096, 0.6028.
+0.6532, 0.6453, 0.6360, 0.6255, 0.6170, 0.6096, 0.6028.
 ```
 
 This decreasing sequence is consistent with the conjecture `ex(Q_n,C4) = (1/2+o(1)) |E(Q_n)|`. Finite-dimensional values above `1/2` do not contradict the asymptotic conjecture.
@@ -373,7 +373,7 @@ SHA-256 hashes are over raw JSON file bytes.
 ```text
 Q9   q9_edges_repair_from1503_iter2.json    0994be825ec39d115b65eb1436eace7c1be324448a6ec116d69c8a7e2a75d338
 Q10  q10_edges_repair_from3302_iter5.json   24317cb0f821a7e39688d1376ac58c466779fc21d3628085270ddc468ae27c09
-Q11  q11_edges_repair_from7151_iter3.json   efedbcbcc759765cecd4eb50bd7cbd9cb85b10b957ff84cfbfa92b91f4dc1d8d
+Q11  q11_edges_repair_from7160_probe_fast2.json a396680dd00bd3b86fff26920c5345cebeff4dde3d7dd411fd8ea97ac269274b
 Q12  q12_edges_repair_from15366_iter3.json  f1e952df4c40e10418f52b9c778fd8d1313efb1ab41bc8e45266d645a368a2f5
 Q13  q13_edges_repair_from32842_iter2.json  f3214c05e66d45a3a300d2a96ee3f3a77982d091990ff5457f1852e98a389dd2
 Q14  q14_edges_repair_from69895_iter2.json  78d7ca75e720f920637d72134c7749f9680f7c4c60d31ac67e8948a1fa0d7e32

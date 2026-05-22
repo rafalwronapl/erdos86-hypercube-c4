@@ -12,7 +12,7 @@ from pathlib import Path
 CERTIFICATES = [
     (9, 1505, "q9_edges_repair_from1503_iter2.json"),
     (10, 3304, "q10_edges_repair_from3302_iter5.json"),
-    (11, 7156, "q11_edges_repair_from7151_iter3.json"),
+    (11, 7164, "q11_edges_repair_from7160_probe_fast2.json"),
     (12, 15372, "q12_edges_repair_from15366_iter3.json"),
     (13, 32856, "q13_edges_repair_from32842_iter2.json"),
     (14, 69909, "q14_edges_repair_from69895_iter2.json"),
