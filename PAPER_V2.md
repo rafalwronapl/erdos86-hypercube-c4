@@ -28,7 +28,7 @@ Let `ex(Q_n,C4)` denote the maximum number of edges in a C4-free subgraph of the
 \end{aligned}
 \]
 
-These extend the currently available explicit computational lower-bound table beyond the values `ex(Q7,C4) >= 304` and `ex(Q8,C4) >= 680` reported by Minamoto. Each construction is supplied as a JSON edge-list certificate and was verified by exhaustive enumeration of all 4-cycles in the corresponding hypercube. The constructions were found by a two-stage computational pipeline: a product lift using automorphisms of the hypercube, followed by a local ILP repair step on C4-incidence neighborhoods. We make no exactness claims for `n >= 7`.
+These extend the explicit certificate table beyond the values `ex(Q7,C4) >= 304` and `ex(Q8,C4) >= 680` reported by Minamoto. Each construction is supplied as a JSON edge-list certificate and was verified by exhaustive enumeration of all 4-cycles in the corresponding hypercube. The constructions were found by a two-stage computational pipeline: a product lift using automorphisms of the hypercube, followed by a local ILP repair step on C4-incidence neighborhoods. We make no exactness claims for `n >= 7`.
 
 ## 1. Introduction
 
@@ -54,7 +54,7 @@ Balogh, Hu, Lidicky and Liu proved that a C4-free subgraph of `Q_n` has at most 
 
 For small dimensions, Brouwer and Etzion determined the exact values up to `n=6`. Minamoto recently gave explicit constructions with 304 edges in `Q7` and 680 edges in `Q8`, together with edge lists and verification code. We are not aware of a previously published explicit certificate table for `ex(Q_n,C4)` for `n >= 9`.
 
-The main contribution of this note is a certified lower-bound table for `9 <= n <= 15`.
+The main contribution of this note is a certified lower-bound table for `9 <= n <= 15`. Compared with the commonly cited Brass-Harborth-Nienborg general estimate `0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)`, the certificates improve the numerical lower bound for `Q9` and `Q10`; for `Q11` through `Q15` they should be viewed as explicit certificate-level constructions rather than improvements over that general estimate.
 
 ## 2. Preliminaries
 
@@ -220,6 +220,28 @@ For example, the rigorous chain uses `ex(Q6,C4)=132`, giving `Q7 <= floor((14/6)
 
 We do not claim that the subcube lemma is new.
 
+### 4.3 Lower-Bound Context
+
+The Brass-Harborth-Nienborg construction gives the commonly cited general estimate
+
+```text
+0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)
+```
+
+for general `n >= 9`. The comparison is:
+
+| n | certificate | BHN general estimate | difference |
+|---:|---:|---:|---:|
+| 9 | 1505 | 1497.6 | +7.4 |
+| 10 | 3304 | 3288.6 | +15.4 |
+| 11 | 7156 | 7160.3 | -4.3 |
+| 12 | 15372 | 15480.5 | -108.5 |
+| 13 | 32856 | 33269.8 | -413.8 |
+| 14 | 69909 | 71137.2 | -1228.2 |
+| 15 | 148126 | 151434.7 | -3308.7 |
+
+Thus only the `Q9` and `Q10` certificates improve this general numerical estimate. The remaining certificates are still valid explicit lower-bound witnesses, but should not be presented as improving the BHN estimate.
+
 ## 5. Verification and Certificates
 
 Each certificate is a JSON file containing integer vertex pairs. SHA-256 hashes in this paper are computed over the raw JSON file bytes.
@@ -265,7 +287,13 @@ The cycle counts checked were:
 
 Summed across the seven independent verifications, 1,504,512 4-cycles were enumerated and checked.
 
-A fresh independent run of this verifier on the seven final certificate files is recorded in `VERIFY_ALL_CERTIFICATES.log`.
+A fresh local run of this verifier on the seven final certificate files is recorded in `VERIFY_ALL_CERTIFICATES.log`.
+
+### 5.1 Independent Cross-Check
+
+After publication of the certificate repository, Minamo Minamoto independently checked the seven certificates using a separate sparse cherry-counting verifier. This verifier uses the equivalent condition that a graph is C4-free if and only if no unordered vertex pair has two common neighbours. This is a different algorithm from the exhaustive four-cycle enumeration above.
+
+The independent check found matching SHA-256 hashes, the stated edge counts, no invalid hypercube edges, no loops or duplicates, full vertex support, and no C4 in all seven certificates. The cross-check report and verifier are included as `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 
 ## 6. Computational Notes
 

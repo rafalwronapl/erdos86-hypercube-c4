@@ -27,7 +27,7 @@ Format: markdown / LaTeX
 
 ## Suggested Title
 
-Explicit lower bounds for ex(Q_n, C_4), n = 9 through 15
+Explicit C4-free edge-list certificates for Q9 through Q15
 
 ---
 
@@ -35,7 +35,7 @@ Explicit lower bounds for ex(Q_n, C_4), n = 9 through 15
 
 Following Minamo Minamoto's recent constructions (arXiv:2603.29127), which give
 `ex(Q_7,C_4) >= 304` and `ex(Q_8,C_4) >= 680`, I found explicit certified
-lower bounds for the next seven dimensions:
+C4-free edge-list constructions for the next seven dimensions:
 
 | n | lower bound for `ex(Q_n,C_4)` | density `|E|/(n 2^(n-1))` | 4-cycles checked |
 |---:|---:|---:|---:|
@@ -60,6 +60,12 @@ outside the product-lift family and was essential for the final values above.
 
 These are lower bounds only. I make no exactness claims for `n >= 7`.
 
+For context, compared with the Brass-Harborth-Nienborg general estimate
+`0.5 * (n + 0.9 sqrt(n)) * 2^(n-1)`, the `Q9` and `Q10` certificates improve the
+numerical lower bound by about `7.4` and `15.4` edges respectively. The
+`Q11-Q15` certificates are valid explicit witnesses but do not improve that
+general estimate.
+
 The densities decrease over this range and are consistent with the conjecture
 `ex(Q_n,C_4) = (1/2+o(1)) n 2^(n-1)`. The `n=15` density `0.6028` is below
 Baber's asymptotic upper-bound constant `0.60318`, while `n=14` is still
@@ -82,8 +88,16 @@ Certificates, lift parameters, hashes, and a standalone verifier are available a
 
 `[REPO_URL]`
 
+In addition to my verifier, the certificates were independently checked by
+Minamo Minamoto using a separate sparse cherry-counting verifier. This verifier
+checks the equivalent condition that no unordered vertex pair has two common
+neighbours, rather than enumerating the hypercube's 4-cycles directly. All seven
+certificates passed with matching SHA-256 hashes and the stated edge counts.
+This is an independent certificate-level check; novelty against the full
+published literature should still be checked separately.
+
 A short note is in preparation. I would appreciate verification, error reports,
-and pointers to any prior unpublished or computational lower bounds for
+and pointers to any prior unpublished or computational certificate tables for
 `ex(Q_n,C_4)` with `n >= 9`.
 
 Contact: rafalwronapl@gmail.com

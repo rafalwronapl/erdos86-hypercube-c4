@@ -20,6 +20,27 @@ The claim is only that these are explicit certified lower bounds. No exactness
 claim is made for `n >= 7`, and these finite-dimensional constructions do not
 contradict the asymptotic conjecture.
 
+## Relation To The BHN General Estimate
+
+The Brass-Harborth-Nienborg general estimate gives a useful comparison point.
+Using the commonly cited general form
+`0.5 * (n + 0.9 * sqrt(n)) * 2^(n-1)`, the present certificates exceed that
+estimate for `Q9` and `Q10`, but not for `Q11` through `Q15`.
+
+| n | certificate | BHN general estimate | certificate - estimate |
+|---:|---:|---:|---:|
+| 9 | 1505 | 1497.6 | +7.4 |
+| 10 | 3304 | 3288.6 | +15.4 |
+| 11 | 7156 | 7160.3 | -4.3 |
+| 12 | 15372 | 15480.5 | -108.5 |
+| 13 | 32856 | 33269.8 | -413.8 |
+| 14 | 69909 | 71137.2 | -1228.2 |
+| 15 | 148126 | 151434.7 | -3308.7 |
+
+So the strongest conservative framing is: explicit certificate-level lower
+bounds for `Q9` through `Q15`, with small numerical improvements over the BHN
+general estimate in `Q9` and `Q10`.
+
 ## Verification
 
 Run:
@@ -50,9 +71,28 @@ An earlier local verification run is recorded in
 On a local workstation, a fresh verification of all seven bundled certificates
 takes a few seconds.
 
+## Independent Cross-Check
+
+The certificates were also independently checked by Minamo Minamoto using a
+separate sparse cherry-counting verifier. This verifier does not enumerate the
+4-cycles of the hypercube directly. Instead, it checks the equivalent condition
+that no unordered pair of vertices has two common neighbours.
+
+All seven certificates passed the independent check:
+
+- SHA-256 hashes matched `SHA256SUMS`;
+- edge counts matched the claimed values;
+- all edges were valid hypercube edges;
+- no loops or duplicates were found;
+- no C4 was detected.
+
+See `independent_crosscheck.md` and `c4_sparse_verifier.py`.
+
 ## Contents
 
 - `verify_c4_free.py` - standalone verifier.
+- `c4_sparse_verifier.py` - independent sparse cherry-counting verifier.
+- `independent_crosscheck.md` - independent certificate-level cross-check.
 - `q*_edges_*.json` - edge-list certificates.
 - `PAPER_V2.md` - draft note explaining the construction and verification.
 - `lift_params.json` - product-lift parameters used in the search stage.
