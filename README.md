@@ -6,15 +6,15 @@ of hypercubes `Q9` through `Q15`.
 For the Erdos Problems #86 notation `ex(Q_n, C4)`, the certificates establish
 the following lower bounds:
 
-| n | certified lower bound | certificate |
-|---:|---:|---|
-| 9 | 1505 | `q9_edges_repair_from1503_iter2.json` |
-| 10 | 3304 | `q10_edges_repair_from3302_iter5.json` |
-| 11 | 7156 | `q11_edges_repair_from7151_iter3.json` |
-| 12 | 15372 | `q12_edges_repair_from15366_iter3.json` |
-| 13 | 32856 | `q13_edges_repair_from32842_iter2.json` |
-| 14 | 69909 | `q14_edges_repair_from69895_iter2.json` |
-| 15 | 148126 | `q15_edges_repair_from148111_iter1.json` |
+| n | certified lower bound | C4 violations | SHA-256 | certificate |
+|---:|---:|---:|---|---|
+| 9 | 1505 | 0 | `0994be825ec39d115b65eb1436eace7c1be324448a6ec116d69c8a7e2a75d338` | `q9_edges_repair_from1503_iter2.json` |
+| 10 | 3304 | 0 | `24317cb0f821a7e39688d1376ac58c466779fc21d3628085270ddc468ae27c09` | `q10_edges_repair_from3302_iter5.json` |
+| 11 | 7156 | 0 | `efedbcbcc759765cecd4eb50bd7cbd9cb85b10b957ff84cfbfa92b91f4dc1d8d` | `q11_edges_repair_from7151_iter3.json` |
+| 12 | 15372 | 0 | `f1e952df4c40e10418f52b9c778fd8d1313efb1ab41bc8e45266d645a368a2f5` | `q12_edges_repair_from15366_iter3.json` |
+| 13 | 32856 | 0 | `f3214c05e66d45a3a300d2a96ee3f3a77982d091990ff5457f1852e98a389dd2` | `q13_edges_repair_from32842_iter2.json` |
+| 14 | 69909 | 0 | `78d7ca75e720f920637d72134c7749f9680f7c4c60d31ac67e8948a1fa0d7e32` | `q14_edges_repair_from69895_iter2.json` |
+| 15 | 148126 | 0 | `9c98dc35a87d2a2fde9ee115f628144d2851e1dbdf57096ad6e6003d97b8f575` | `q15_edges_repair_from148111_iter1.json` |
 
 The claim is only that these are explicit certified lower bounds. No exactness
 claim is made for `n >= 7`, and these finite-dimensional constructions do not
@@ -46,6 +46,9 @@ q15_edges_repair_from148111_iter1.json: n=15, edges=148126, cycles=860160, viola
 
 An earlier local verification run is recorded in
 `VERIFY_ALL_CERTIFICATES.log`.
+
+On a local workstation, a fresh verification of all seven bundled certificates
+takes a few seconds.
 
 ## Contents
 
