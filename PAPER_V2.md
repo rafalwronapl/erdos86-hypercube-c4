@@ -52,7 +52,7 @@ ex(Q_n,C4) = (1/2 + o(1)) n 2^(n-1).
 
 Balogh, Hu, Lidicky and Liu proved that a C4-free subgraph of `Q_n` has at most `0.6068 |E(Q_n)|` edges for sufficiently large `n` in their flag-algebra framework. Baber improved the asymptotic upper-bound constant to `0.60318`.
 
-For small dimensions, Brouwer and Etzion determined the exact values up to `n=6`. Minamoto recently gave explicit constructions with 304 edges in `Q7` and 680 edges in `Q8`, together with edge lists and verification code. We are not aware of previously published explicit values for `ex(Q_n,C4)` for `n >= 9`.
+For small dimensions, Brouwer and Etzion determined the exact values up to `n=6`. Minamoto recently gave explicit constructions with 304 edges in `Q7` and 680 edges in `Q8`, together with edge lists and verification code. We are not aware of a previously published explicit certificate table for `ex(Q_n,C4)` for `n >= 9`.
 
 The main contribution of this note is a certified lower-bound table for `9 <= n <= 15`.
 
