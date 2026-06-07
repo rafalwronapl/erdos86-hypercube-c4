@@ -6,6 +6,11 @@
 This repository contains explicit edge-list certificates for C4-free subgraphs
 of hypercubes `Q9` through `Q15`.
 
+The result was posted as a certificate-verification request on the Erdos
+Problems forum:
+
+https://www.erdosproblems.com/forum/thread/86
+
 For the Erdos Problems #86 notation `ex(Q_n, C4)`, the certificates establish
 the following lower bounds:
 
@@ -113,6 +118,9 @@ See `independent_crosscheck.md` and `c4_sparse_verifier.py`.
 - `PAPER_V2.md` - draft note explaining the construction and verification.
 - `lift_params.json` - product-lift parameters used in the search stage.
 - `SHA256SUMS` - raw file hashes for the certificates.
+- `CLAIM_BOUNDARY.md` - precise statement of what is and is not claimed.
+- `REPRODUCE.md` - short reproduction instructions.
+- `HDF_STATUS.md` - Hard Discovery Factory classification.
 - `FORUM_POST_DRAFT_V3.md` - draft forum post for Erdos Problems.
 
 ## Disclosure
