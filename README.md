@@ -1,5 +1,8 @@
 # Explicit C4-Free Subgraphs of Hypercubes Q9 Through Q15
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3](https://img.shields.io/badge/Python-3-blue.svg)](verify_c4_free.py)
+
 This repository contains explicit edge-list certificates for C4-free subgraphs
 of hypercubes `Q9` through `Q15`.
 
@@ -19,6 +22,16 @@ the following lower bounds:
 The claim is only that these are explicit certified lower bounds. No exactness
 claim is made for `n >= 7`, and these finite-dimensional constructions do not
 contradict the asymptotic conjecture.
+
+## Why This Matters
+
+For finite extremal graph problems, a useful public result needs more than a
+number. It needs the certificate, a verifier, hashes, and a precise statement of
+what is and is not being claimed.
+
+This repository is structured around that standard: explicit edge lists,
+SHA-256 checksums, a direct verifier, an independent sparse cross-check, and a
+conservative lower-bound framing.
 
 ## Relation To The BHN General Estimate
 
